@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ViewFlipper
+import com.khizar1556.mkvideoplayer.MKPlayerActivity
 import net.alhazmy13.mediapicker.Video.VideoPicker
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode==VideoPicker.VIDEO_PICKER_REQUEST_CODE && resultCode== RESULT_OK){
             val videoPaths=data!!.getStringArrayListExtra(VideoPicker.EXTRA_VIDEO_PATH)
             Log.d("videoPaths","OnActivity: $videoPaths")
-
+            MKPlayerActivity.configPlayer(this@MainActivity).play(videoPaths!![0])
         }
     }
 }
